@@ -121,6 +121,7 @@ $ docker push [USERNAME]/hello-world
 In this way, the image can be download with:
 ```
 $ docker run javmurillo/adidas-wishlist-app # listening at :3002
+```
 
 ## Built With
 
