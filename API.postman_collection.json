@@ -1,0 +1,370 @@
+{
+	"info": {
+		"_postman_id": "a501fd51-2db4-4257-b954-346bcfb0a2fa",
+		"name": "Adidas Wishlist API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Adidas API is working",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "67da47ad-b21d-408e-9be1-4ef925da66cb",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Adidas API works\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.property(\"products\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://adidas.co.uk/api/suggestions/ultraboost",
+					"protocol": "http",
+					"host": [
+						"adidas",
+						"co",
+						"uk"
+					],
+					"path": [
+						"api",
+						"suggestions",
+						"ultraboost"
+					]
+				},
+				"description": "Returns suggestions from Adidas API"
+			},
+			"response": []
+		},
+		{
+			"name": "Clear the Wishlist successfully",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ad6e2539-0906-440b-af72-b1c9145d8f03",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Array length is equal to 0\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.length).to.eql(0)",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{url}}/api/wishlist",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"wishlist"
+					]
+				},
+				"description": "Clears the entire Wishlist"
+			},
+			"response": []
+		},
+		{
+			"name": "Adds a new article to the Wishlist",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c7ed9b93-9bb4-42f1-b229-163d256875c0",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"pm.test(\"Article fields exist given a new object\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.property(\"suggestion\");",
+							"    pm.expect(jsonData).to.have.property(\"image\");",
+							"    pm.expect(jsonData).to.have.property(\"url\");",
+							"    pm.expect(jsonData).to.have.property(\"rating\");",
+							"    pm.expect(jsonData).to.have.property(\"reviews\");",
+							"    pm.expect(jsonData).to.have.property(\"subTitle\");",
+							"    pm.expect(jsonData).to.have.property(\"isPreorder\");",
+							"    pm.expect(jsonData).to.have.property(\"salePrice\");",
+							"    pm.expect(jsonData).to.have.property(\"standardPrice\");",
+							"    pm.expect(jsonData).to.have.property(\"_id\");",
+							"    pm.globals.set(\"ART1_ID\", \"aHR0cHM6Ly93d3cuYWRpZGFzLmNvLnVrL3VsdHJhYm9vc3Qtc2hvZXMvQkI2MTY2Lmh0bWw=\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"article\": {\r\n\t\t\"suggestion\": \"Ultraboost Parley Shoes\",\r\n\t\t\"image\": \"https://www.adidas.co.uk/dis/dw/image/v2/aagl_prd/on/demandware.static/Sites-adidas-GB-Site/Sites-adidas-products/en_GB/v1531697924106/zoom/AC7836_01_standard.jpg?sw=60&sh=60&sm=fit\",\r\n\t\t\"url\": \"https://www.adidas.co.uk/ultraboost-parley-shoes/AC7836.html\",\r\n\t\t\"rating\": \"5\",\r\n\t\t\"reviews\": \"48\",\r\n\t\t\"subTitle\": \"Men Running\",\r\n\t\t\"isPreorder\": \"\",\r\n\t\t\"salePrice\": null,\r\n\t\t\"standardPrice\": \"£ 149.95\",\r\n\t\t\"_id\": \"aHR0cHM6Ly93d3cuYWRpZGFzLmNvLnVrL3VsdHJhYm9vc3Qtc2hvZXMvQkI2MTY2Lmh0bWw=\"\r\n\t}\r\n}"
+				},
+				"url": {
+					"raw": "{{url}}/api/wishlist",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"wishlist"
+					]
+				},
+				"description": "Adds a new article to the wishlist"
+			},
+			"response": []
+		},
+		{
+			"name": "Adds a second article to the Wishlist",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1e878ced-3957-41ec-8b19-60ecf97fa65d",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"pm.test(\"Article fields exist given a new object\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.property(\"suggestion\");",
+							"    pm.expect(jsonData).to.have.property(\"image\");",
+							"    pm.expect(jsonData).to.have.property(\"url\");",
+							"    pm.expect(jsonData).to.have.property(\"rating\");",
+							"    pm.expect(jsonData).to.have.property(\"reviews\");",
+							"    pm.expect(jsonData).to.have.property(\"subTitle\");",
+							"    pm.expect(jsonData).to.have.property(\"isPreorder\");",
+							"    pm.expect(jsonData).to.have.property(\"salePrice\");",
+							"    pm.expect(jsonData).to.have.property(\"standardPrice\");",
+							"    pm.expect(jsonData).to.have.property(\"_id\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"article\": {\r\n\t\t\"suggestion\": \"Ultraboost Parley Shoes\",\r\n\t\t\"image\": \"https://www.adidas.co.uk/dis/dw/image/v2/aagl_prd/on/demandware.static/Sites-adidas-GB-Site/Sites-adidas-products/en_GB/v1531697924106/zoom/AC7836_01_standard.jpg?sw=60&sh=60&sm=fit\",\r\n\t\t\"url\": \"https://www.adidas.co.uk/ultraboost-parley-shoes/AC7836.html\",\r\n\t\t\"rating\": \"5\",\r\n\t\t\"reviews\": \"48\",\r\n\t\t\"subTitle\": \"Men Running\",\r\n\t\t\"isPreorder\": \"\",\r\n\t\t\"salePrice\": null,\r\n\t\t\"standardPrice\": \"£ 149.95\",\r\n\t\t\"_id\": \"bHR0cHM6Ly93d3cuYWRpZGFzLmNvLnVrL3VsdHJhYm9vc3Qtc2hvZXMvQkI2MTY2Lmh0bWw=\"\r\n\t}\r\n}"
+				},
+				"url": {
+					"raw": "{{url}}/api/wishlist",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"wishlist"
+					]
+				},
+				"description": "Adds a new article to the wishlist"
+			},
+			"response": []
+		},
+		{
+			"name": "Can't add an article with the same Id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "854872fc-e360-41ab-b77a-edb3aa7f280a",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 500\", function () {",
+							"    pm.response.to.have.status(500);",
+							"});",
+							"",
+							"pm.test(\"Error message creating an article with the same ID \", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.property(\"message\");",
+							"    pm.expect(jsonData.message).to.equals(\"Article ID already exists.\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"article\": {\r\n\t\t\"suggestion\": \"Ultraboost Parley Shoes\",\r\n\t\t\"image\": \"https://www.adidas.co.uk/dis/dw/image/v2/aagl_prd/on/demandware.static/Sites-adidas-GB-Site/Sites-adidas-products/en_GB/v1531697924106/zoom/AC7836_01_standard.jpg?sw=60&sh=60&sm=fit\",\r\n\t\t\"url\": \"https://www.adidas.co.uk/ultraboost-parley-shoes/AC7836.html\",\r\n\t\t\"rating\": \"5\",\r\n\t\t\"reviews\": \"48\",\r\n\t\t\"subTitle\": \"Men Running\",\r\n\t\t\"isPreorder\": \"\",\r\n\t\t\"salePrice\": null,\r\n\t\t\"standardPrice\": \"£ 149.95\",\r\n\t\t\"_id\": \"bHR0cHM6Ly93d3cuYWRpZGFzLmNvLnVrL3VsdHJhYm9vc3Qtc2hvZXMvQkI2MTY2Lmh0bWw=\"\r\n\t}\r\n}"
+				},
+				"url": {
+					"raw": "{{url}}/api/wishlist",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"wishlist"
+					]
+				},
+				"description": "Adds a new article to the wishlist"
+			},
+			"response": []
+		},
+		{
+			"name": "Removes the first article given his Id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b24a4a68-47df-4403-88b8-cc24c919287c",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Array length is equal to 1\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.length).to.eql(1)",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{url}}/api/wishlist/{{ART1_ID}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"wishlist",
+						"{{ART1_ID}}"
+					]
+				},
+				"description": "Clears the entire Wishlist"
+			},
+			"response": []
+		},
+		{
+			"name": "The Wishlist has two articles",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "da3d5ab0-febe-4890-b55a-99c9448c9dce",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Array length is equal to 0\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.length).to.eql(1)",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{url}}/api/wishlist",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"wishlist"
+					]
+				},
+				"description": "Returns the wishlist"
+			},
+			"response": []
+		},
+		{
+			"name": "Clears the Wishlist successfully",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ad6e2539-0906-440b-af72-b1c9145d8f03",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Array length is equal to 0\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.length).to.eql(0)",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{url}}/api/wishlist",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"wishlist"
+					]
+				},
+				"description": "Clears the entire Wishlist"
+			},
+			"response": []
+		}
+	]
+}
