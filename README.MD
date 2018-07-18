@@ -98,6 +98,30 @@ The API docs are available at http://wishlist.javmurillo.me/api-docs
 
 ![enter image description here](https://github.com/javmurillo/adidas-wishlist-app/blob/master/screenshot2.png?raw=true)
 
+## Docker
+The application was dockerize with the following configuration file and commands:
+```
+FROM node:8
+WORKDIR /app
+COPY package*.json /app/
+RUN npm install
+COPY . /app
+CMD npm run node
+EXPOSE 3002
+```
+```
+$ docker build -t [USERNAME]/adidas-wishlist-app .
+```
+```
+$ docker login -u <username> -p <password>
+```
+```
+$ docker push [USERNAME]/hello-world
+```
+In this way, the image can be download with:
+```
+$ docker run javmurillo/adidas-wishlist-app # listening at :3002
+
 ## Built With
 
 *  [NodeJS](https://nodejs.org/en/) - Node.js is an open-source, cross-platform JavaScript run-time environment that executes JavaScript code outside the browser.
