@@ -4,11 +4,14 @@ node_js:
 
 install:
     - npm install newman
+    - npm install jest
 
 before_script:
     - node --version
     - npm --version
     - node_modules/.bin/newman --version
+    - node_modules/.bin/jest --version
 
 script:
     - node_modules/.bin/newman run API.postman_collection.json -e postman_environment.json
+    - node_modules/.bin/jest --runInBand
