@@ -1,7 +1,7 @@
 {
     "apps":[{
         "name" : "AdidasWishlistApp",
-        "script" : "server",
+        "script" : "server.js",
         "watch" : true,
         "ignore_watch" : [".git", "pm2.config.json", "node_modules", "build", "src", "dist"]
     }]
