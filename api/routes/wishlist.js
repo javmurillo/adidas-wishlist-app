@@ -15,10 +15,10 @@ let wishlistStorage = [];
  *     responses:
  *       200:
  *         description: successful operation
- *         type: array
- *         items:
- *              schema:
- *              $ref: '#/definitions/Article'
+ *         schema:
+ *              type: array
+ *              items:
+ *                  $ref: '#/definitions/Article'
  */
 router.get('/', (req, res) => {
     res.status(200).json(wishlistStorage);
@@ -37,7 +37,7 @@ router.get('/', (req, res) => {
  *         in: body
  *         required: true
  *         description: Article to add in the Wishlist
- *         properties:
+ *         schema:
  *              article:
  *                      $ref: '#/definitions/Article'
  *     responses:
