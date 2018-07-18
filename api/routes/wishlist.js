@@ -38,8 +38,7 @@ router.get('/', (req, res) => {
  *         required: true
  *         description: Article to add in the Wishlist
  *         schema:
- *              article:
- *                      $ref: '#/definitions/Article'
+ *              $ref: '#/definitions/Article'
  *     responses:
  *       201:
  *         description: Article added successfully
