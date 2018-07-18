@@ -155,6 +155,10 @@ By assigning unique keys to each Article we achieve two things:
  1. The key is not identical between sibling components.
  2. The key do not change between renders.
 
+### About Search results
+
+In order to improve the user experience, an action with the query requested is dispatched after each keystroke, displaying the state dynamically.
+
 ### About Sorting
 
 The application implements a sorter which can sort the home articles list by reviews number and price. When the user interacts with it, the sorter dispatches two actions: **to change the sort parameter**, and **to sort the current article list**. By dispatching these actions, not only the current list will be sorted by that parameter, but all following queries.
