@@ -1,0 +1,143 @@
+@font-face {
+    font-family: "texgyreadventor";
+    src: url(/assets/fonts/texgyreadventor-regular.otf);
+}
+@font-face {
+    font-family: "texgyreadventor-bold";
+    src: url(/assets/fonts/texgyreadventor-bold.otf);
+}
+
+a {
+    color: black;
+}
+
+.active {
+    border-bottom: 2px solid white;
+}
+
+body {
+    padding-top: 120px;
+    font-family: 'texgyreadventor';
+}
+
+.black-button {
+    background: black;
+    border-color: black;
+}
+
+.black-button:hover {
+    background: darkgray;
+    border-color: darkgray;
+}
+
+.card-product .img-wrap {
+    background-color: #ebecee;
+    border-radius: 3px 3px 0 0;
+    overflow: hidden;
+    position: relative;
+    height: 220px;
+    text-align: center;
+}
+.card-product .img-wrap img {
+    max-height: 100%;
+    max-width: 100%;
+
+}
+.card-product .info-wrap {
+    overflow: hidden;
+    padding: 15px;
+    border-top: 1px solid #eee;
+}
+.card-product .bottom-wrap {
+    padding: 15px;
+    border-top: 1px solid #eee;
+}
+
+.card-product .price-old {
+    color: #999;
+}
+
+.darkred-button {
+    background: indianred;
+    border-color: indianred;
+}
+
+.form-control:focus {
+    outline: 0 !important;
+    border-color: initial;
+    box-shadow: none;
+}
+
+.home-hr-margin {
+    margin-top: 45px;
+    margin-bottom: 45px
+}
+
+h2 {
+    font-family: 'texgyreadventor-bold';
+    text-align: center;
+}
+
+h3 {
+    text-align: center;
+}
+
+h5 {
+    text-align: center;
+    font-style: italic;
+    size: 10px;
+    padding-bottom: 20px;
+}
+
+h6 {
+    text-align: center;
+    font-size: 2em;
+    color: darkgray;
+}
+
+html {
+    overflow-y: scroll;
+}
+
+
+.label-reviews { margin-right:10px;
+    color: #333;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.label-rating { margin-right:10px;
+    color: #333;
+    display: inline-block;
+    vertical-align: middle;
+    float: right
+}
+
+.navbar-brand {
+    padding-right: 460px;
+}
+
+.navbar-nav {
+    font-family: 'texgyreadventor';
+    font-size: 18px
+}
+
+.navbar-nav > li{
+    padding-left:15px;
+    padding-right:15px;
+}
+
+.select-right {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+#select{
+    width:150px;
+}
+
+.wishlist-hr-margin {
+    margin-top: 10px;
+    margin-bottom: 40px
+}

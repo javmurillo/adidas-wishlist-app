@@ -1,0 +1,58 @@
+{
+    "info": {
+        "title": "Adidas Wishlist App",
+        "version": "1.0.0"
+    },
+    "tags": [{
+        "name": "wishlist",
+        "description": "Operations about the Wishlist"
+    }],
+    "schemes": ["http"],
+    "definitions": {
+        "Article": {
+            "type": "object",
+            "properties": {
+                "_id": {
+                    "type": "string",
+                    "example": "aHR0cHM6Ly93d3cuYWRpZGFzLmNvLnVrL3VsdHJhYm9vc3Qtc2hvZXMvQkI2MTY2Lmh0bWw="
+                },
+                "suggestion": {
+                    "type": "string",
+                    "example":"Ultraboost Shoes"
+                },
+                "image": {
+                    "type": "string",
+                    "example": "https://www.adidas.co.uk/dis/dw/image/v2/aagl_prd/on/demandware.static/Sites-adidas-GB-Site/Sites-adidas-products/en_GB/v1531784621085/zoom/BB6166_01_standard.jpg?sw=60&sh=60&sm=fit"
+                },
+                "url": {
+                    "type": "string",
+                    "example": "https://www.adidas.co.uk/ultraboost-shoes/BB6166.html"
+                },
+                "rating": {
+                    "type": "string",
+                    "example": "5"
+                },
+                "reviews": {
+                    "type": "string",
+                    "example": "1946"
+                },
+                "subTitle": {
+                    "type": "string",
+                    "example": "Men Running"
+                },
+                "isPreorder": {
+                    "type": "string",
+                    "example": ""
+                },
+                "salePrice": {
+                    "type": "string",
+                    "example": "£ 99.95"
+                },
+                "standardPrice": {
+                    "type": "string",
+                    "example": "£ 149.95"
+                }
+            }
+        }
+    }
+}
