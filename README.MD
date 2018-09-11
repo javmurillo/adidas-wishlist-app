@@ -80,17 +80,17 @@ node_js:
   
 install:  
   - npm install newman  
-    - npm install jest  
+  - npm install jest  
   
 before_script:  
   - node --version  
-    - npm --version  
-    - node_modules/.bin/newman --version  
-    - node_modules/.bin/jest --version  
+  - npm --version  
+  - node_modules/.bin/newman --version  
+  - node_modules/.bin/jest --version  
   
 script:  
   - node_modules/.bin/newman run API.postman_collection.json -e postman_environment.json  
-    - node_modules/.bin/jest --runInBand
+  - node_modules/.bin/jest --runInBand
 ```
 ### API Documentation
 
@@ -116,7 +116,7 @@ $ docker build -t [USERNAME]/adidas-wishlist-app .
 $ docker login -u <username> -p <password>
 ```
 ```
-$ docker push [USERNAME]/hello-world
+$ docker push [USERNAME]/adidas-wishlist-app
 ```
 In this way, the image can be download with:
 ```
