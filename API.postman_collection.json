@@ -6,49 +6,6 @@
 	},
 	"item": [
 		{
-			"name": "Adidas API is working",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "67da47ad-b21d-408e-9be1-4ef925da66cb",
-						"type": "text/javascript",
-						"exec": [
-							"pm.test(\"Status code is 200\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});",
-							"",
-							"pm.test(\"Adidas API works\", function () {",
-							"    var jsonData = pm.response.json();",
-							"    pm.expect(jsonData).to.have.property(\"products\");",
-							"});"
-						]
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {},
-				"url": {
-					"raw": "http://adidas.co.uk/api/suggestions/ultraboost",
-					"protocol": "http",
-					"host": [
-						"adidas",
-						"co",
-						"uk"
-					],
-					"path": [
-						"api",
-						"suggestions",
-						"ultraboost"
-					]
-				},
-				"description": "Returns suggestions from Adidas API"
-			},
-			"response": []
-		},
-		{
 			"name": "Clear the Wishlist successfully",
 			"event": [
 				{
